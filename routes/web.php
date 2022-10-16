@@ -32,6 +32,8 @@ use App\Http\Controllers\ProdutoController;
 //Route::get('/alunos', [AlunosController::class, 'index']);
 
 Route::get('/', [ProdutoController::class, 'index']);
+Route::get('/novos', [ProdutoController::class, 'index']);
+Route::get('/usados', [ProdutoController::class, 'index']);
 
 Route::get('/veiculos', [VeiculoController::class, 'index']);
 

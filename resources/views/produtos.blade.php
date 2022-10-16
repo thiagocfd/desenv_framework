@@ -19,19 +19,27 @@
             <br>
             <h1>Produtos Novos</h1>
 
-                <table class="table table-responsive table-striped table-dark mt-4">
-                    <tr>
+                <table class="table table-responsive table-striped mt-4">
+                    <tr class="">
                         <th>Produto</th>
                         <th>Categoria</th>
                         <th>Preço</th>
                     </tr>
                         @foreach ( $produtos as $produto )
                             @if ($produto['novo'] == true)
-                                <tr>
-                                    <td>{{ $produto['nome'] }}</td>
-                                    <td>{{ $produto['categoria'] }}</td>
-                                    <td>R$ {{ $produto['preco'] }}</td>
-                                </tr>
+                                @if ($produto['promocao'] == true)
+                                    <tr class="table-success">
+                                        <td>{{ $produto['nome'] }}</td>
+                                        <td>{{ $produto['categoria'] }}</td>
+                                        <td>R$ {{ $produto['preco'] }}</td>
+                                    </tr>
+                                @else
+                                    <tr>
+                                        <td>{{ $produto['nome'] }}</td>
+                                        <td>{{ $produto['categoria'] }}</td>
+                                        <td>R$ {{ $produto['preco'] }}</td>
+                                    </tr>
+                                @endif
                             @endif
                         @endforeach
                 </table>
@@ -39,19 +47,27 @@
                 <br>
                 <h1>Produtos Usados</h1>
 
-                <table class="table table-responsive table-striped table-dark mt-4">
-                    <tr>
+                <table class="table table-responsive table-striped mt-4">
+                    <tr class="">
                         <th>Produto</th>
                         <th>Categoria</th>
                         <th>Preço</th>
                     </tr>
                         @foreach ( $produtos as $produto )
                             @if ($produto['novo'] == false)
-                                <tr>
-                                    <td>{{ $produto['nome'] }}</td>
-                                    <td>{{ $produto['categoria'] }}</td>
-                                    <td>R$ {{ $produto['preco'] }}</td>
-                                </tr>
+                                @if ($produto['promocao'] == true)
+                                    <tr class="table-success">
+                                        <td>{{ $produto['nome'] }}</td>
+                                        <td>{{ $produto['categoria'] }}</td>
+                                        <td>R$ {{ $produto['preco'] }}</td>
+                                    </tr>
+                                @else
+                                    <tr>
+                                        <td>{{ $produto['nome'] }}</td>
+                                        <td>{{ $produto['categoria'] }}</td>
+                                        <td>R$ {{ $produto['preco'] }}</td>
+                                    </tr>
+                                @endif
                             @endif
                         @endforeach
                 </table>

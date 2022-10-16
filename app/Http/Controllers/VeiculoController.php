@@ -13,6 +13,7 @@ class VeiculoController extends Controller
      */
     public function index($fabricante)
     {
+        
         $veiculos = array_filter($this->veiculos, function($veiculo) use ($fabricante) {
             return strtolower($veiculo['fabricante']) === strtolower($fabricante);
         });
